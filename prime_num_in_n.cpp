@@ -25,6 +25,7 @@ int main() {
 
   return 0;
 }
+
 int prime(int x)
 {
   int y,r=1;

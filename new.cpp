@@ -1,22 +1,56 @@
+
+
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
 #include <iostream>
-#include <string.h>
+#include <algorithm>
+#include <bits/stdc++.h>
+
 using namespace std;
-int main() {
 
-  int n,j;
-  string s;
+int number_needed(string a, string b) {
+   int p[26]={0},q[26]={0};
+    for(int i=0;i<a.length();i++)
+        p[a[i]-97]++;
+    for(int i=0;i<b.length();i++)
+        q[b[i]-97]++;
+    int ans=0;
+    for(int i=0;i<26;i++)
+        ans+=abs(p[i]-q[i]);
 
-  do{
-    cin>>n;
-}while((n<0)||(n>11));
+    return ans;
+}
 
+int main(){
 
-do{
-  cin >> s;
-  j = s.size();
-}while((j<0)||(j>16));
-cout<<n*2<<endl;
-cout<<s;
-
-  return 0;
+    ///freopen("1.txt","r",stdin);
+    //freopen("1a.txt","w",stdout);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    string a;
+    cin >> a;
+    string b;
+    cin >> b;
+    cout << number_needed(a, b) << endl;
+    }
+    return 0;
 }
