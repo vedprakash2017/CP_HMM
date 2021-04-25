@@ -4,10 +4,23 @@ int main()
 {
     vector <int> x;
     int y;
-    while(cin>>y)
-        x.push_back(y);
-    auto i = min_element(x.begin(),x.end());  
-    int sum = x.size()-(i+1);
+    int mmm;
+    cin>>mmm;
+    while(mmm>0)
+    {
+        cin>>y;
+        x.push_back(y);mmm--;
+    }
+    int m = 0;
+    for(int i = 0; i<x.size();i++)
+    {
+        if(x[m]>=x[i])
+            m = i;
+    }
+    int sum = x.size()-(m+1);
     auto j = max_element(x.begin(),x.end());
+    sum+=(j-x.begin());
+    if((j-x.begin()) > m ) sum--;
+    cout<<sum;
 
 }
