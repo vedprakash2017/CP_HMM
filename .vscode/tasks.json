@@ -1,27 +1,40 @@
 {
 	"version": "2.0.0",
 	"tasks": [
+
+		{
+			"type": "shell",
+			"label": "mkdir",
+			"linux": {
+				"command":"mkdir -p /home/ved/mylife/cp/CP_HMM/exec/${relativeFileDirname}",
+			},
+        },
 		{
 			"type": "cppbuild",
-			"label": "C/C++: g++ build active file",
-			"command": "/usr/bin/g++",
+			"label": "build c++",
+			"command": "/usr/bin/g++-7",
 			"args": [
 				"-g",
 				"${file}",
 				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}"
+				"/home/ved/mylife/cp/CP_HMM/exec/${relativeFileDirname}/${fileBasenameNoExtension}"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}"
+				"cwd": "${fileDirname}"
 			},
 			"problemMatcher": [
 				"$gcc"
 			],
+			"detail": "compiler: /usr/bin/g++-7"
+		},
+		{
+			"label": "C/C++: g++-7 build active file",
+			"dependsOrder": "sequence",
+			"dependsOn":["mkdir","build c++"],
 			"group": {
-				"kind": "build",
-				"isDefault": true
+				"isDefault": true,
+				"kind":"build",
 			},
-			"detail": "compiler: /usr/bin/g++"
-		}
+  		}
 	]
 }
